@@ -623,6 +623,7 @@ class DocumentTest extends TestCase
                             ],
                         ],
                     ],
+                    'new_node_id' => '5f039b4ef005',
                 ],
             ],
         ];
@@ -689,12 +690,13 @@ class DocumentTest extends TestCase
           <MIME_DESCRIPTION></MIME_DESCRIPTION>
         </MIME>
       </MIME_INFO>
+      <NEW_NODE_ID>5f039b4ef005</NEW_NODE_ID>
     </PRODUCT>
 </T_NEW_CATALOG>
 </api>'));
 
         $data = $stub->parse([
-            'product' => ['uses' => 'T_NEW_CATALOG.PRODUCT[NODE_ID>node_id,PRODUCT_FEATURES{FEATURE{FNAME>name,FVALUE>value,TRANSLATION_US.FNAME>feature_translation_name,TRANSLATION_US.FVALUE>feature_translation_value}>feature}>product_features,MIME_INFO{MIME{property(::id=@),MIME_TYPE>mime_type,MIME_SOURCE>mime_source,MIME_DESCRIPTION>mime_description}>mime}>mime_info]'],
+            'product' => ['uses' => 'T_NEW_CATALOG.PRODUCT[NODE_ID>node_id,PRODUCT_FEATURES{FEATURE{FNAME>name,FVALUE>value,TRANSLATION_US.FNAME>feature_translation_name,TRANSLATION_US.FVALUE>feature_translation_value}>feature}>product_features,MIME_INFO{MIME{property(::id=@),MIME_TYPE>mime_type,MIME_SOURCE>mime_source,MIME_DESCRIPTION>mime_description}>mime}>mime_info,NEW_NODE_ID>new_node_id]'],
         ]);
 
         $this->assertEquals($expected, $data);
